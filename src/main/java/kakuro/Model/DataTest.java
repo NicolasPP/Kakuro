@@ -1,5 +1,7 @@
 package kakuro.Model;
 
+import javafx.scene.text.Font;
+
 import java.util.*;
 
 public class DataTest {
@@ -10,6 +12,16 @@ public class DataTest {
         BoardData boardData = new BoardData();
         CombinationData combs = new CombinationData();
         List<String []> combinations = combs.combinationData.get(5).sumToDigits.get(34);
+
+//        List<String> fontFamilies = Font.getFamilies();
+//        List<String> fontNames    = Font.getFontNames();
+//
+//        for(String item : fontFamilies) {
+//            System.out.println(item);
+//        }
+//        for(String item : fontNames) {
+//            System.out.println(item);
+//        }
 
 
 
@@ -56,24 +68,21 @@ public class DataTest {
         // Test for kakuro.Model.Board data
 
 
-        HashMap<String, List<kakuro.Model.Board>> dimensionBoards = boardData.getBoardsByDimensions(EASY);
-        for(Map.Entry<String, List<kakuro.Model.Board>> entry : dimensionBoards.entrySet())
-        {
-            String key = entry.getKey();
-            List<kakuro.Model.Board> bData =  entry.getValue();
-            System.out.print(key + "         ");
-            System.out.println(bData.size());
-            for(kakuro.Model.Board b : bData)
-            {
-                for (String cellString : b.board)
-                {
-//                    System.out.println(cellString);
-                }
-//                System.out.println("===============================");
-            }
-        }
-
-
+//        HashMap<String, List<kakuro.Model.Board>> dimensionBoards = boardData.getBoardsByDimensions(EASY);
+//        for(Map.Entry<String, List<kakuro.Model.Board>> entry : dimensionBoards.entrySet())
+//        {
+//            String key = entry.getKey();
+//            List<kakuro.Model.Board> bData =  entry.getValue();
+//            System.out.print(key + "         ");
+//            System.out.println(bData.size());
+//            for(kakuro.Model.Board b : bData)
+//            {
+//                for (String cellString : b.board)
+//                {
+////                    System.out.println(cellString);
+//                }
+////                System.out.println("===============================");
+//            }
 
         // test for cells
 
@@ -96,5 +105,6 @@ public class DataTest {
 //            System.out.println();
 //        }
 
+//    }
     }
 }

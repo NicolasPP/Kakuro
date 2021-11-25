@@ -31,6 +31,8 @@ public class SelectBoardView
     final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private int imgSize = 40;
     final private int spacing = 10;
+    final int sceneHeight = 400;
+    final int sceneWidth = 250;
 
     public SelectBoardView(List<Board> boardList, String dimension, List<Board> boards)
     {
@@ -103,7 +105,7 @@ public class SelectBoardView
                         this.boards
 
                 ).addControllers();
-        return new Scene(this.anchor);
+        return new Scene(this.anchor, sceneWidth, sceneHeight);
     }
 
     private Stage setUpStage()
@@ -111,7 +113,7 @@ public class SelectBoardView
         Stage st = new Stage();
         st.setScene(window);
         st.setTitle("Pick Board");
-
+        st.setResizable(false);
         return st;
     }
 

@@ -94,6 +94,7 @@ public class BoardViewController {
                }
                boardView.setListViewItems();
                markBoard();
+//               checkSum(selected);
            });
         }
     }
@@ -129,9 +130,10 @@ public class BoardViewController {
                     }
 
                 }
+                boardView.setListViewItems();
+                markBoard();
+//                checkSum(cell.get());
             }
-            boardView.setListViewItems();
-            markBoard();
         });
     }
 
@@ -154,6 +156,7 @@ public class BoardViewController {
             selected.updateText("", false);
             boardView.setListViewItems();
             markBoard();
+//            checkSum(selected);
         });
     }
     private void setUpRestartController()
@@ -175,7 +178,11 @@ public class BoardViewController {
         for (NumberCell cell : cellList)
         {
             cell.cell.setOnMouseClicked(mouseEvent ->
-                    boardView.setListViewItems());
+            {
+                boardView.setListViewItems();
+                markBoard();
+//                checkSum(cell);
+            });
         }
     }
 
@@ -234,25 +241,27 @@ public class BoardViewController {
 
     private void checkSum(NumberCell cell)
     {
-        int currentColumnSum = getRowColumnSum(cell, cell.columnCells);
-        int currentRowSum = getRowColumnSum(cell, cell.rowCells);
+        int currentColumnSum = getRowColumnSum(cell, cell.columnCells)[0];
+        int currentRowSum = getRowColumnSum(cell, cell.rowCells)[0];
+        int nearRowSize = getRowColumnSum(cell, cell.rowCells)[1];
+        int nearColumnSize = getRowColumnSum(cell, cell.columnCells)[1];
         int rowSum = cell.rowSum;
         int columnSum = cell.columnSum;
 
-        checkRowColumn(currentColumnSum, columnSum, cell.columnCells);
-        checkRowColumn(currentRowSum, rowSum, cell.rowCells);
+        checkRowColumn(currentColumnSum, columnSum, cell.columnCells, cell.columnSize, nearColumnSize);
+        checkRowColumn(currentRowSum, rowSum, cell.rowCells, cell.rowSize, nearRowSize);
     }
 
-    private void checkRowColumn(int currentSum, int sum, List<int[]> nearCells)
+    private void checkRowColumn(int currentSum, int sum, List<int[]> nearCells, int size, int nearCellSize)
     {
-        if (currentSum == sum)
+        if (currentSum == sum  && size == nearCellSize )
         {
             cellChangeOutLineColour("green", nearCells, true);
 
         }
         else
         {
-            if (currentSum > sum)
+            if (currentSum >= sum)
             {
                 cellChangeOutLineColour("red", nearCells, false);
             }
@@ -263,14 +272,16 @@ public class BoardViewController {
         }
     }
 
-    private int getRowColumnSum(NumberCell cell ,List<int[]> cellsIndex)
+    private int[] getRowColumnSum(NumberCell cell ,List<int[]> cellsIndex)
     {
         int currentSum = 0;
+        int numSize = 0;
         if(!cell.isNumberPencil)
         {
             if (cell.number.length() == 1)
             {
                 currentSum = Integer.parseInt(cell.number);
+                numSize++;
             }
         }
 
@@ -283,9 +294,11 @@ public class BoardViewController {
             {
                 int cellNum = Integer.parseInt(neighbourCell.number);
                 currentSum += cellNum;
+                numSize++;
             }
         }
-        return currentSum;
+
+        return new int[]{currentSum, numSize};
     }
 
     private void cellChangeOutLineColour(String colour, List<int[]> cellToChange, Boolean isGreen)

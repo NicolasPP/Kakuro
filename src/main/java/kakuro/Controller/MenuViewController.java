@@ -1,6 +1,5 @@
 package kakuro.Controller;
 
-import kakuro.View.BoardView;
 import kakuro.View.DifficultyView;
 import kakuro.View.MenuView;
 
@@ -34,9 +33,6 @@ public class MenuViewController {
     public void setUpQuitButton()
     {
         menu.quit.setOnMouseClicked(mouseEvent ->
-        {
-            DifficultyView.close();
-//            this.menu.anchor.setVisible(!isVisible);
-        });
+                MenuView.close());
     }
 }

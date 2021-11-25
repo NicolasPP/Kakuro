@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import kakuro.Controller.MenuViewController;
 
@@ -15,12 +17,12 @@ public class MenuView
     final int spacing = 10;
     public AnchorPane anchor;
     public Scene window;
+    Text title;
     public Button play;
     public Button quit;
     final private VBox page;
-
-    //TODO add title to menu
-    //TODO make menu a bit bigger, maybe same size as listView pages
+    final int sceneHeight = 400;
+    final int sceneWidth = 250;
 
     public MenuView(Stage stage)
     {
@@ -38,16 +40,25 @@ public class MenuView
 
         play = new Button("Play");
         quit = new Button("Quit");
+        title = setUpText();
 
         menuPane.getChildren().addAll
                 (
+                        title,
                         play,
                         quit
                 );
 
         return menuPane;
     }
-    public AnchorPane setUpAnchor()
+
+    private Text setUpText()
+    {
+        Text textTitle = new Text("Kakuro");
+        textTitle.setFont(Font.font("Arial Italic" , 20));
+        return textTitle;
+    }
+    private AnchorPane setUpAnchor()
     {
         AnchorPane ac = new AnchorPane();
 
@@ -66,13 +77,14 @@ public class MenuView
     private Scene setUpScene()
     {
         new MenuViewController(this).setUpControllers();
-        return new Scene(anchor);
+        return new Scene(anchor, sceneWidth, sceneHeight);
     }
 
     public void setUpStage()
     {
         stage.setScene(window);
         stage.setTitle("menu");
+        stage.setResizable(false);
     }
 
 

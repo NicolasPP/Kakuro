@@ -24,7 +24,6 @@ public class NumberCell
     public String number = "";
     public boolean isGreen = false;
 
-    //TODO figure out how to add multi color to string.
     //TODO change button to canvas, this way I can use multi coloured numbers.
 
     public NumberCell(int size , String [][] board, int indexI, int indexJ)

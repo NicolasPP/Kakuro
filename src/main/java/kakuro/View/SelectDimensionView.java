@@ -9,11 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import kakuro.Controller.SelectDimensionViewController;
 import kakuro.Model.Board;
 import kakuro.Model.BoardData;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +27,7 @@ public class SelectDimensionView
     Scene window;
     AnchorPane anchor;
     VBox page;
+    Text title;
     ListView dimensionList;
     List<String> dimensions;
     BoardData boardData;
@@ -37,12 +39,15 @@ public class SelectDimensionView
     final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private int imgSize = 40;
     final int spacing = 10;
+    final int sceneHeight = 400;
+    final int sceneWidth = 250;
 
     public SelectDimensionView(String fileName)
     {
         this.difficulty = fileName;
         this.fileName = fileName;
         this.boardData = new BoardData();
+        this.title = setUpText();
         this.dimensionBoard = boardData.getBoardsByDimensions(fileName);
         this.dimensions = setUpDimensions();
         this.dimensionList = setUpDimensionsList();
@@ -54,7 +59,6 @@ public class SelectDimensionView
 
     }
 
-    //TODO add title {difficulty} + dimensions maybe add count
 
     private List<String> setUpDimensions()
     {
@@ -88,7 +92,9 @@ public class SelectDimensionView
         addButtonImage();
 
         vb.getChildren().addAll
-                (this.dimensionList,
+                (
+                        this.title,
+                        this.dimensionList,
                         this.goBack
                 );
         return vb;
@@ -116,7 +122,7 @@ public class SelectDimensionView
                         this.difficulty,
                         this.boardData
                 ).addControllers();
-        return new Scene(this.anchor);
+        return new Scene(this.anchor, sceneWidth , sceneHeight);
     }
 
     private Stage setUpStage()
@@ -124,7 +130,7 @@ public class SelectDimensionView
         Stage st = new Stage();
         st.setScene(window);
         st.setTitle("Pick Dimension");
-
+        st.setResizable(false);
         return st;
     }
 
@@ -153,6 +159,14 @@ public class SelectDimensionView
         btn.setPrefHeight(imgSize);
         btn.setPrefWidth(imgSize);
         return btn;
+    }
+
+    private Text setUpText()
+    {
+        String test = this.difficulty.substring(0,difficulty.length() - 9) + "s";
+        Text textTitle = new Text(test);
+        textTitle.setFont(Font.font("Arial Italic" , 20));
+        return textTitle;
     }
 
     public static void show()

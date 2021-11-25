@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import kakuro.Controller.DifficultyViewController;
 
@@ -29,8 +31,10 @@ public class DifficultyView
     final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private String EASY = "EASY";
     final private String MEDIUM = "MEDIUM";
-    final private String DIFFICULT = "DIFFICULT";
+    final private String DIFFICULT = "HARD";
     final String GO_BACK = "goBack.png";
+    final int sceneHeight = 400;
+    final int sceneWidth = 250;
 
     public DifficultyView()
     {
@@ -88,22 +92,24 @@ public class DifficultyView
 
     private Scene setUpWindow()
     {
-        return new Scene(this.anchor);
+        return new Scene(this.anchor, sceneWidth, sceneHeight);
     }
 
     private Stage setUpStage()
     {
-        Stage st = new Stage();
-        st.setScene(this.window);
-        st.setTitle("Pick DIfficulty");
-
         new DifficultyViewController
                 (
-                this.easy,
+                        this.easy,
                         this.medium,
                         this.difficult,
                         this.goBack
-        ).addControllers();
+                ).addControllers();
+
+
+        Stage st = new Stage();
+        st.setScene(this.window);
+        st.setTitle("Pick DIfficulty");
+        st.setResizable(false);
 
         return st;
     }
