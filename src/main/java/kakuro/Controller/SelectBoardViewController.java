@@ -33,14 +33,17 @@ public class SelectBoardViewController
     {
         this.boardListView.setOnMouseClicked(mouseEvent ->
         {
-            String [] indexString = boardListView.getSelectionModel().getSelectedItem().toString().split(",");
-            int index = Integer.parseInt(indexString[0].substring(8).trim());
-            int height = Integer.parseInt(dimension.split(":")[0].split("x")[0].trim());
-            int width = Integer.parseInt(dimension.split(":")[0].split("x")[1].trim());
-            Board board = data.get(index);
-            SelectBoardView.close();
-            BoardView.create(board, height, width);
-            BoardView.show();
+            if(boardListView.getSelectionModel().getSelectedItem() != null)
+            {
+                String [] indexString = boardListView.getSelectionModel().getSelectedItem().toString().split(",");
+                int index = Integer.parseInt(indexString[0].substring(8).trim());
+                int height = Integer.parseInt(dimension.split(":")[0].split("x")[0].trim());
+                int width = Integer.parseInt(dimension.split(":")[0].split("x")[1].trim());
+                Board board = data.get(index);
+                SelectBoardView.close();
+                BoardView.create(board, height, width);
+                BoardView.show();
+            }
         });
     }
     private void setUpGoBackController()

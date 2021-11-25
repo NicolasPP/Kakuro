@@ -18,7 +18,6 @@ import kakuro.View.Cell.BlankCell;
 import kakuro.View.Cell.NumberCell;
 import kakuro.View.Cell.SumCell;
 import kakuro.util.Resources;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -300,7 +299,7 @@ public class BoardView
         Stage st = new Stage();
         st.setScene(window);
         st.setTitle("Kakuro");
-        st.setResizable(true);
+        st.setResizable(false);
 
         new BoardViewController(
                 this.cellList,

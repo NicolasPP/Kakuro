@@ -18,4 +18,3 @@ kakuro\Controller\SelectBoardViewController.class
 kakuro\KakuroApp.class
 kakuro\util\Resources.class
 kakuro\Model\DataTest.class
-kakuro\Controller\BoardViewController.class

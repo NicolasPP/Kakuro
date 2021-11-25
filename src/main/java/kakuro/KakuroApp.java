@@ -31,6 +31,3 @@ public class KakuroApp extends Application
         launch();
     }
 }
-//FIXME refactor code so uses relative filepath not absolute.
-//FIXME make gitHub repository for project.
-//TODO add icons directory in resources for png files

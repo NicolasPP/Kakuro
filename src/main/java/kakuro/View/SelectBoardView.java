@@ -128,7 +128,7 @@ public class SelectBoardView
     private Text setUpText()
     {
         String test = this.dimension.split(":")[0];
-        Text textTitle = new Text(test);
+        Text textTitle = new Text(test + ": Boards");
         textTitle.setFont(Font.font("Arial Italic" , 20));
         return textTitle;
     }

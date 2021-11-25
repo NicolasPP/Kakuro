@@ -16,7 +16,6 @@ import kakuro.Controller.SelectDimensionViewController;
 import kakuro.Model.Board;
 import kakuro.Model.BoardData;
 import kakuro.util.Resources;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -164,7 +163,7 @@ public class SelectDimensionView
 
     private Text setUpText()
     {
-        String test = this.difficulty.substring(0,difficulty.length() - 9) + "s";
+        String test = this.difficulty.substring(0,difficulty.length() - 9).replaceAll("_", " ") + "s";
         Text textTitle = new Text(test);
         textTitle.setFont(Font.font("Arial Italic" , 20));
         return textTitle;
