@@ -16,5 +16,6 @@ kakuro\View\SelectBoardView.class
 kakuro\Controller\BoardViewController$1.class
 kakuro\Controller\SelectBoardViewController.class
 kakuro\KakuroApp.class
+kakuro\util\Resources.class
 kakuro\Model\DataTest.class
 kakuro\Controller\BoardViewController.class

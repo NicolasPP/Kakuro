@@ -8,10 +8,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import kakuro.Controller.DifficultyViewController;
+import kakuro.util.Resources;
 
 public class DifficultyView
 {
@@ -125,7 +124,7 @@ public class DifficultyView
 
     private void addButtonImage()
     {
-        Image img = new Image(PATH + GO_BACK);
+        Image img = new Image(Resources.getIconPath(GO_BACK));
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(imgSize);
         imgView.setFitWidth(imgSize);

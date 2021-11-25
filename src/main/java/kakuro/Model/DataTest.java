@@ -1,14 +1,12 @@
 package kakuro.Model;
 
-import javafx.scene.text.Font;
-
 import java.util.*;
 
 public class DataTest {
     public static void main(String[] args) {
-        final String EASY = "easy_board_data.txt";
-        final String MEDIUM = "medium_board_data.txt";
-        final String DIFFICULT = "difficult_board_data.txt";
+        final String EASY = "data/easy_board_data.txt";
+        final String MEDIUM = "data/medium_board_data.txt";
+        final String DIFFICULT = "data/difficult_board_data.txt";
         BoardData boardData = new BoardData();
         CombinationData combs = new CombinationData();
         List<String []> combinations = combs.combinationData.get(5).sumToDigits.get(34);

@@ -11,9 +11,9 @@ public class DifficultyViewController {
     Button medium;
     Button difficult;
     Button goBack;
-    private final String EASY = "easy_board_data.txt";
-    private final String MEDIUM = "medium_board_data.txt";
-    private final String DIFFICULT = "difficult_board_data.txt";
+    private final String EASY = "data/easy_board_data.txt";
+    private final String MEDIUM = "data/medium_board_data.txt";
+    private final String DIFFICULT = "data/difficult_board_data.txt";
 
     public DifficultyViewController
             (

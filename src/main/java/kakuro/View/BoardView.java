@@ -17,6 +17,7 @@ import kakuro.Model.CombinationData;
 import kakuro.View.Cell.BlankCell;
 import kakuro.View.Cell.NumberCell;
 import kakuro.View.Cell.SumCell;
+import kakuro.util.Resources;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -137,10 +138,10 @@ public class BoardView
         Button goBack = setUpMenuButtons("goBack");
         Button restart = setUpMenuButtons("restart");
 
-        addButtonImage(UNDO, undo, imgSize, imgSize);
-        addButtonImage(GO_BACK, goBack, imgSize, imgSize);
-        addButtonImage(ERASE, erase, imgSize, imgSize);
-        addButtonImage(RESTART, restart, imgSize, imgSize);
+        addButtonImage(Resources.getIconPath(UNDO), undo, imgSize, imgSize);
+        addButtonImage(Resources.getIconPath(GO_BACK), goBack, imgSize, imgSize);
+        addButtonImage(Resources.getIconPath(ERASE), erase, imgSize, imgSize);
+        addButtonImage(Resources.getIconPath(RESTART), restart, imgSize, imgSize);
 
         menuGrid.getChildren().addAll(undo, erase, goBack, restart);
         menuButtons.add(undo);
@@ -175,7 +176,7 @@ public class BoardView
         TilePane penPane = new TilePane();
         this.pencilButton = new Button();
         this.pencilButton.setFocusTraversable(false);
-        addButtonImage("pencil.png", pencilButton, 50 , 50);
+        addButtonImage("icons/pencil.png", pencilButton, 50 , 50);
         setUpTilePaneLayout(penPane, 1,1);
         penPane.getChildren().add(pencilButton);
         return penPane;
@@ -438,7 +439,7 @@ public class BoardView
 
     private void addButtonImage(String fileName, Button btn, int imageSizeHeight, int imageSizeWidth)
     {
-        Image img = new Image(PATH + fileName);
+        Image img = new Image(fileName);
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(imageSizeHeight);
         imgView.setFitWidth(imageSizeWidth);

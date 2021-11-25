@@ -9,10 +9,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import kakuro.Controller.SelectBoardViewController;
 import kakuro.Model.Board;
+import kakuro.util.Resources;
+
 import java.util.List;
 
 public class SelectBoardView
@@ -25,6 +29,7 @@ public class SelectBoardView
     List<Board> boards;
     ListView boardListView;
     Button goBack;
+    Text title;
     String dimension;
     List<Board> boardList;
     final String GO_BACK = "goBack.png";
@@ -39,6 +44,7 @@ public class SelectBoardView
         this.boards = boards;
         this.boardList = boardList;
         this.dimension = dimension;
+        this.title = setUpText();
         this.goBack = setUpButton();
         this.boardListView = setUpBoardListView();
         this.page = setUpPage();
@@ -64,6 +70,7 @@ public class SelectBoardView
         {
             Text text = new Text("#" + (i + 1));
             text.setId(i+"");
+            text.setTextAlignment(TextAlignment.RIGHT);
             bList.getItems().add(text);
         }
 
@@ -75,7 +82,9 @@ public class SelectBoardView
         setUpVboxPaneLayout(vb);
 
         vb.getChildren().addAll
-                (this.boardListView,
+                (
+                        this.title,
+                        this.boardListView,
                         this.goBack
                 );
 
@@ -117,9 +126,17 @@ public class SelectBoardView
         return st;
     }
 
+    private Text setUpText()
+    {
+        String test = this.dimension.split(":")[0];
+        Text textTitle = new Text(test);
+        textTitle.setFont(Font.font("Arial Italic" , 20));
+        return textTitle;
+    }
+
     private void addButtonImage(Button btn)
     {
-        Image img = new Image(PATH + GO_BACK);
+        Image img = new Image(Resources.getIconPath(GO_BACK));
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(imgSize);
         imgView.setFitWidth(imgSize);

@@ -94,7 +94,6 @@ public class BoardViewController {
                }
                boardView.setListViewItems();
                markBoard();
-//               checkSum(selected);
            });
         }
     }
@@ -132,7 +131,6 @@ public class BoardViewController {
                 }
                 boardView.setListViewItems();
                 markBoard();
-//                checkSum(cell.get());
             }
         });
     }
@@ -156,7 +154,6 @@ public class BoardViewController {
             selected.updateText("", false);
             boardView.setListViewItems();
             markBoard();
-//            checkSum(selected);
         });
     }
     private void setUpRestartController()
@@ -181,7 +178,6 @@ public class BoardViewController {
             {
                 boardView.setListViewItems();
                 markBoard();
-//                checkSum(cell);
             });
         }
     }

@@ -1,7 +1,10 @@
 package kakuro.Model;
 
+import kakuro.util.Resources;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +19,6 @@ public class BoardData
     private final String EASY = "easy_board_data.txt";
     private final String MEDIUM = "medium_board_data.txt";
     private final String DIFFICULT = "difficult_board_data.txt";
-    private final String FILEPATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
 
     public BoardData()
     {
@@ -68,7 +70,12 @@ public class BoardData
 
     private Scanner readFile(String fileName) throws FileNotFoundException
     {
-        File DIFFICULT_BOARD = new File(FILEPATH + fileName);
+        File DIFFICULT_BOARD = null;
+        try {
+            DIFFICULT_BOARD = Resources.getPath( fileName);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return new Scanner(DIFFICULT_BOARD);
     }
 

@@ -1,7 +1,10 @@
 package kakuro.Model;
 
+import kakuro.util.Resources;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,9 +14,7 @@ import java.util.Scanner;
 public class CombinationData
 {
     public HashMap<Integer, Combinations> combinationData;
-    static private final String COMBINATION = "combinations.txt";
-    static private final String FILEPATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
-
+    private final String COMBINATION = "combinations.txt";
 
     public CombinationData()
     {
@@ -23,7 +24,12 @@ public class CombinationData
 
     private Scanner readFile() throws FileNotFoundException
     {
-        File COMBINATION_FILE = new File(FILEPATH + CombinationData.COMBINATION);
+        File COMBINATION_FILE = null;
+        try {
+            COMBINATION_FILE = Resources.getPath(COMBINATION);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return new Scanner(COMBINATION_FILE);
     }
 

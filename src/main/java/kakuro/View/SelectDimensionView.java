@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import kakuro.Controller.SelectDimensionViewController;
 import kakuro.Model.Board;
 import kakuro.Model.BoardData;
+import kakuro.util.Resources;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -145,7 +147,7 @@ public class SelectDimensionView
 
     private void addButtonImage()
     {
-        Image img = new Image(PATH + GO_BACK);
+        Image img = new Image(Resources.getIconPath(GO_BACK));
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(imgSize);
         imgView.setFitWidth(imgSize);
