@@ -27,7 +27,6 @@ public class DifficultyView
     final private int buttonWidth = 80;
     final private int imgSize = 40;
     final private int spacing = 10;
-    final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private String EASY = "EASY";
     final private String MEDIUM = "MEDIUM";
     final private String DIFFICULT = "HARD";

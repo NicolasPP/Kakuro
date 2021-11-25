@@ -52,7 +52,6 @@ public class BoardView
     List<Button> numberPadButtons;
     final String NUMBER_CELL = "x";
     final String BLANK_CELL = "x/x";
-    static private final String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final String UNDO = "undo.png";
     final String GO_BACK = "goBack.png";
     final String ERASE = "erase.png";

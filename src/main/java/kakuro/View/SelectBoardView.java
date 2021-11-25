@@ -33,7 +33,6 @@ public class SelectBoardView
     String dimension;
     List<Board> boardList;
     final String GO_BACK = "goBack.png";
-    final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private int imgSize = 40;
     final private int spacing = 10;
     final int sceneHeight = 400;

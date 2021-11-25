@@ -38,7 +38,6 @@ public class SelectDimensionView
     Button goBack;
     String difficulty;
     final String GO_BACK = "goBack.png";
-    final private String PATH = "C:\\Users\\nicol\\Documents\\Projects\\Kakuro\\src\\main\\resources\\";
     final private int imgSize = 40;
     final int spacing = 10;
     final int sceneHeight = 400;
