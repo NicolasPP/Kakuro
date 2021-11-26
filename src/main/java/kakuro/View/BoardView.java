@@ -312,11 +312,10 @@ public class BoardView
         return st;
     }
 
-
+//TODO only check if whole row/column is filled
     private List<String[]> filterCombinations(List<String[]>combinations, List<String> digits)
     {
         List<String []> filteredCombinations = new ArrayList<>();
-
 
         for (String [] combination : combinations)
         {

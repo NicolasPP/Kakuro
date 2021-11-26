@@ -46,7 +46,6 @@ public class SelectDimensionViewController
             String id = dimensionList.getSelectionModel().getSelectedItem().toString();
             String [] dimList = id.split(":");
             String dim = dimList[0].trim();
-            System.out.println(this.difficulty);
             List<Board> dimensionBoards = boardData.getBoardsByDimensions(this.difficulty).get(dim);
             SelectDimensionView.close();
             SelectBoardView.create(dimensionBoards, id, dimensionBoards);

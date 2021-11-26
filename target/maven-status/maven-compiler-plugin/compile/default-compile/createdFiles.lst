@@ -3,6 +3,7 @@ kakuro\Controller\DifficultyViewController.class
 kakuro\Controller\SelectDimensionViewController.class
 kakuro\Model\Combinations.class
 kakuro\View\Cell\SumCell.class
+kakuro\View\WinView.class
 kakuro\View\DifficultyView.class
 kakuro\Controller\MenuViewController.class
 kakuro\View\BoardView.class
@@ -18,3 +19,4 @@ kakuro\Controller\SelectBoardViewController.class
 kakuro\KakuroApp.class
 kakuro\util\Resources.class
 kakuro\Model\DataTest.class
+kakuro\Controller\WinViewController.class

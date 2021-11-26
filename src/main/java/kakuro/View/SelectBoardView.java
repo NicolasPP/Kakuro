@@ -139,7 +139,6 @@ public class SelectBoardView
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(imgSize);
         imgView.setFitWidth(imgSize);
-        imgView.setPreserveRatio(false);
         btn.setGraphic(imgView);
     }
 
@@ -147,7 +146,6 @@ public class SelectBoardView
     {
         box.setSpacing(spacing * 2);
         box.setAlignment(Pos.CENTER);
-        box.setFillWidth(false);
         box.setPadding(new Insets(spacing * 2, spacing, spacing * 2, spacing));
         box.setStyle("-fx-border-color: black");
     }

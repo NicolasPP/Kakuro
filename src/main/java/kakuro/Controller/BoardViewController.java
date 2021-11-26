@@ -15,6 +15,7 @@ import java.util.Stack;
 import kakuro.View.BoardView;
 import kakuro.View.Cell.NumberCell;
 import kakuro.View.SelectBoardView;
+import kakuro.View.WinView;
 
 public class BoardViewController {
     List<NumberCell> cellList;
@@ -59,7 +60,7 @@ public class BoardViewController {
         setUpPencilController();
     }
 
-
+    //TODO add win check in: cellcontroller, numberpadController, undoController, pencilController, eraserController
     //TODO split setUpUndoController into more functions
     private void setUpNumberPadController()
     {
@@ -94,6 +95,7 @@ public class BoardViewController {
                }
                boardView.setListViewItems();
                markBoard();
+               displyWinView();
            });
         }
     }
@@ -131,6 +133,7 @@ public class BoardViewController {
                 }
                 boardView.setListViewItems();
                 markBoard();
+                displyWinView();
             }
         });
     }
@@ -154,6 +157,7 @@ public class BoardViewController {
             selected.updateText("", false);
             boardView.setListViewItems();
             markBoard();
+            displyWinView();
         });
     }
     private void setUpRestartController()
@@ -177,7 +181,9 @@ public class BoardViewController {
             cell.cell.setOnMouseClicked(mouseEvent ->
             {
                 boardView.setListViewItems();
+//                checkSum(cell);
                 markBoard();
+                displyWinView();
             });
         }
     }
@@ -226,6 +232,30 @@ public class BoardViewController {
         });
     }
 
+
+    // only need to call this.
+    public void displyWinView()
+    {
+        if (winCheck())
+        {
+            WinView.create();
+            WinView.show();
+            BoardView.close();
+        }
+    }
+
+    private boolean winCheck()
+    {
+        for (NumberCell cell : cellList)
+        {
+            if (!cell.isGreen)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     //TODO pass selected cell instead, could be more efficient
     private void markBoard()
     {
@@ -250,6 +280,8 @@ public class BoardViewController {
 
     private void checkRowColumn(int currentSum, int sum, List<int[]> nearCells, int size, int nearCellSize)
     {
+
+        
         if (currentSum == sum  && size == nearCellSize )
         {
             cellChangeOutLineColour("green", nearCells, true);

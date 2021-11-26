@@ -116,7 +116,6 @@ public class DifficultyView
     {
         box.setSpacing(spacing * 2);
         box.setAlignment(Pos.CENTER);
-        box.setFillWidth(false);
         box.setPadding(new Insets(spacing * 6, spacing * 8, spacing * 6, spacing * 8));
         box.setStyle("-fx-border-color: black");
     }
