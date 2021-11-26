@@ -8,6 +8,7 @@ C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\util\Resources.jav
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\SelectBoardView.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\Cell\NumberCell.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Model\Combinations.java
+C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\WinViewController.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\DifficultyViewController.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\DifficultyView.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Model\CombinationData.java
@@ -15,6 +16,9 @@ C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\BoardView.jav
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\Cell\BlankCell.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\MenuViewController.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\SelectDimensionViewController.java
+C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\RestartViewController.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\Cell\SumCell.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Model\BoardData.java
+C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\RestartView.java
+C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\View\WinView.java
 C:\Users\nicol\Documents\Projects\Kakuro\src\main\java\kakuro\Controller\SelectBoardViewController.java

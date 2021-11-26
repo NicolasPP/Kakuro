@@ -24,7 +24,7 @@ import java.util.List;
 
 public class BoardView
 {
-    static BoardView boardViewPage;
+    public static BoardView boardViewPage;
     public Stage stage;
     public TilePane boardGrid;
     TilePane menuGrid;
@@ -46,7 +46,7 @@ public class BoardView
     int buttonSize = 60;
     int cellSize = 30;
     int imgSize = 40;
-    List<NumberCell> cellList;
+    public List<NumberCell> cellList;
     List<Button> menuButtons;
     List<Button> numberPadButtons;
     final String NUMBER_CELL = "x";
@@ -56,6 +56,7 @@ public class BoardView
     final String ERASE = "erase.png";
     final String RESTART = "restart.png";
     public Board board;
+    public BoardViewController controller;
 
 
     //FIXME redesign page for largest board configuration
@@ -301,14 +302,16 @@ public class BoardView
         st.setTitle("Kakuro");
         st.setResizable(false);
 
-        new BoardViewController(
+        controller = new BoardViewController(
                 this.cellList,
                 this.menuButtons,
                 this.numberPadButtons,
                 this.window,
                 this,
                 this.pencilButton
-        ).addControllers();
+        );
+
+        controller.addControllers();
         return st;
     }
 

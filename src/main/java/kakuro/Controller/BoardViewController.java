@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.Stack;
 import kakuro.View.BoardView;
 import kakuro.View.Cell.NumberCell;
+import kakuro.View.RestartView;
 import kakuro.View.SelectBoardView;
 import kakuro.View.WinView;
 
@@ -24,7 +25,7 @@ public class BoardViewController {
     Scene scene;
     BoardView boardView;
     Thread thread;
-    Stack<HashMap<NumberCell,HashMap<String,Boolean>>> undoStack;
+    public Stack<HashMap<NumberCell,HashMap<String,Boolean>>> undoStack;
     Boolean isPencil;
     Button pencil;
 
@@ -165,12 +166,10 @@ public class BoardViewController {
         Button restart = getMenuButton("restart");
         restart.setOnMouseClicked(mouseEvent ->
         {
-            for (NumberCell cell : cellList)
-            {
-                cell.updateText("", false);
-            }
+            RestartView.create();
+            RestartView.show();
+            disableControlls();
             markBoard();
-            this.undoStack.clear();
         });
     }
 
@@ -232,6 +231,45 @@ public class BoardViewController {
         });
     }
 
+    private void disableControlls()
+    {
+        for (NumberCell cell : cellList)
+        {
+            cell.cell.setDisable(true);
+        }
+
+        for (Button menu : menuButtons)
+        {
+            menu.setDisable(true);
+        }
+
+        for (Button numberPad : numberPadButtons)
+        {
+            numberPad.setDisable(true);
+        }
+
+        pencil.setDisable(true);
+    }
+
+    public void enableControlls()
+    {
+        for (NumberCell cell : cellList)
+        {
+            cell.cell.setDisable(false);
+        }
+
+        for (Button menu : menuButtons)
+        {
+            menu.setDisable(false);
+        }
+
+        for (Button numberPad : numberPadButtons)
+        {
+            numberPad.setDisable(false);
+        }
+
+        pencil.setDisable(false);
+    }
 
     // only need to call this.
     public void displyWinView()
@@ -240,6 +278,7 @@ public class BoardViewController {
         {
             WinView.create();
             WinView.show();
+            BoardView.boardViewPage.controller.disableControlls();
             BoardView.close();
         }
     }

@@ -9,6 +9,7 @@ kakuro\Controller\MenuViewController.class
 kakuro\View\BoardView.class
 kakuro\Model\CombinationData.class
 kakuro\View\Cell\NumberCell.class
+kakuro\Controller\RestartViewController.class
 kakuro\View\MenuView.class
 kakuro\View\SelectDimensionView.class
 kakuro\Model\BoardData.class
@@ -20,3 +21,4 @@ kakuro\KakuroApp.class
 kakuro\util\Resources.class
 kakuro\Model\DataTest.class
 kakuro\Controller\WinViewController.class
+kakuro\View\RestartView.class

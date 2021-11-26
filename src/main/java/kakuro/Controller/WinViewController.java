@@ -1,6 +1,7 @@
 package kakuro.Controller;
 
 import javafx.scene.control.Button;
+import kakuro.View.BoardView;
 import kakuro.View.SelectBoardView;
 import kakuro.View.WinView;
 
@@ -24,6 +25,8 @@ public class WinViewController
         {
             SelectBoardView.show();
             WinView.close();
+            BoardView.boardViewPage.controller.enableControlls();
+
         });
     }
 }
